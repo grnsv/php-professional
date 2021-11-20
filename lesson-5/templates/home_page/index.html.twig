@@ -19,9 +19,12 @@
     {% endfor %}
     <button id="loadProducts" type="button">Ещё</button>
 </div>
-{% endblock %}
 
 {% block javascripts %}
     {{ parent() }}
     {{ encore_entry_script_tags('loadProducts') }}
+{% endblock %}
+
+{{ render(controller('App\\Controller\\ProductController::new')) }}
+
 {% endblock %}
