@@ -11,15 +11,15 @@ use Symfony\Component\HttpFoundation\Request;
 class HomePageController extends AbstractController
 {
     /**
-     * @Route("/{limit}", name="home_page", defaults={"limit": 25})
+     * @Route("/", name="home_page")
      */
-    public function index(int $limit): Response
+    public function index(): Response
     {
         $productRepository = $this->getDoctrine()->getRepository(Product::class);
         $products = $productRepository->findBy(
             array(),
             array('id' => 'ASC'),
-            $limit,
+            5,
             0
         );
 

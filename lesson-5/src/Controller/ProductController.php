@@ -9,7 +9,6 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-
 class ProductController extends AbstractController
 {
     /**
@@ -25,6 +24,9 @@ class ProductController extends AbstractController
         ]);
     }
 
+    /**
+     * @Route("/new", name="new")
+     */
     public function new(Request $request): Response
     {
         $product = new Product();
@@ -38,7 +40,8 @@ class ProductController extends AbstractController
             $entityManager->persist($product);
             $entityManager->flush();
 
-            return $this->redirectToRoute('/');
+            $productId = $product->getId();
+            return $this->redirectToRoute('product', ['id' => $productId]);
         }
         return $this->renderForm('product/new.html.twig', [
             'form' => $form,
