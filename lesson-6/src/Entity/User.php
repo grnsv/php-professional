@@ -47,19 +47,19 @@ class User implements PasswordAuthenticatedUserInterface, UserInterface
      */
     private $isVerified = false;
 
-    public function getId() : ?int
+    public function getId(): ?int
     {
 
         return $this->id;
     }
 
-    public function getEmail() : ?string
+    public function getEmail(): ?string
     {
 
         return $this->email;
     }
 
-    public function setEmail(string $email) : self
+    public function setEmail(string $email): self
     {
 
         $this->email = $email;
@@ -67,13 +67,13 @@ class User implements PasswordAuthenticatedUserInterface, UserInterface
         return $this;
     }
 
-    public function getPassword() : ?string
+    public function getPassword(): ?string
     {
 
         return $this->password;
     }
 
-    public function setPassword(string $password) : self
+    public function setPassword(string $password): self
     {
 
         $this->password = $password;
@@ -81,13 +81,13 @@ class User implements PasswordAuthenticatedUserInterface, UserInterface
         return $this;
     }
 
-    public function getFirstName() : ?string
+    public function getFirstName(): ?string
     {
 
         return $this->first_name;
     }
 
-    public function setFirstName(string $first_name) : self
+    public function setFirstName(string $first_name): self
     {
 
         $this->first_name = $first_name;
@@ -95,13 +95,13 @@ class User implements PasswordAuthenticatedUserInterface, UserInterface
         return $this;
     }
 
-    public function getLastName() : ?string
+    public function getLastName(): ?string
     {
 
         return $this->last_name;
     }
 
-    public function setLastName(string $last_name) : self
+    public function setLastName(string $last_name): self
     {
 
         $this->last_name = $last_name;
@@ -126,6 +126,7 @@ class User implements PasswordAuthenticatedUserInterface, UserInterface
     public function getRoles()
     {
         // TODO: Implement getRoles() method.
+        return ['ROLE_USER'];
     }
 
     /**
@@ -161,6 +162,7 @@ class User implements PasswordAuthenticatedUserInterface, UserInterface
     public function getUsername()
     {
         // TODO: Implement getUsername() method.
+        return $this->email;
     }
 
     public function __call($name, $arguments)
@@ -168,13 +170,13 @@ class User implements PasswordAuthenticatedUserInterface, UserInterface
         // TODO: Implement @method string getUserIdentifier()
     }
 
-    public function isVerified() : bool
+    public function isVerified(): bool
     {
 
         return $this->isVerified;
     }
 
-    public function setIsVerified(bool $isVerified) : self
+    public function setIsVerified(bool $isVerified): self
     {
 
         $this->isVerified = $isVerified;
