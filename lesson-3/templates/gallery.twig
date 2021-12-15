@@ -1,0 +1,7 @@
+<ul style="list-style: none; display: flex">
+    {% for image in images %}
+    <li style="margin: 5px;"><a href="index.php?image_id={{ image.id }}">
+        <img alt="{{ image.image_path }}" width="40px" height="40px" src="{{ image.image_path }}"></a>
+    </li>
+    {% endfor %}
+</ul>
